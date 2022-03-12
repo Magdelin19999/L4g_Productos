@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% block titulo %}Productos {% endblock %} {% block
+seccion %}
+
+<div class="card-header text-center">
+  <div class="mb-3 row">
+    <h3 class="col-sm-8">Productos Registrados</h3>
+
+    <div class="col-sm-auto">
+      <a class="btn btn-primary" href="{{ url_for('regitroProducto') }}">Nuevo</a>
+    </div>
+
+  </div>
+</div>
+<div class="card-body p-5 text-center" style="background-color: rgb(84, 154, 194)">
+  <table class="table table-danger table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">nombre</th>
+        <th scope="col">precio</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for producto in productos %}
+      <tr>
+        <th scope="row">{{producto.id}}</th>
+        <td>{{producto.nombre}}</td>
+        <td>{{producto.price}}</td>
+        <td>
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic mixed styles example"
+          >
+            <a class="btn btn-success" href="{{ url_for('editarProducto', id=producto.id) }}">editar</a>
+            <a class="btn btn-danger" href="{{ url_for('eliminarProducto', id=producto.id) }}">Eliminar</a>
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+
+{% endblock %}

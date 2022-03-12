@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block titulo %}Registro Nuevo Producto {% endblock
+%} {% block seccion %}
+<div class="card-header text-center">
+  <h3 class="">Registro Nuevo</h3>
+</div>
+<div class="card-body  text-center" style="background-color: rgb(84, 154, 194)">
+  <form class="mx-5" action="{{ url_for('crearProducto') }}" method="POST">
+    <div class="mb-3 row">
+      <label for="inputNombre" class="col-sm-4 col-form-label">Nombre</label>
+      <div class="col-sm-8">
+        <input
+          type="text"
+          class="form-control"
+          id="inputNombre"
+          name="inputNombre"
+        />
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="inputPrice" class="col-sm-4 col-form-label">Precio</label>
+      <div class="col-sm-8">
+        <input
+          type="number"
+          class="form-control"
+          id="inputPrice"
+          name="inputPrice"
+        />
+      </div>
+    </div>
+
+    <a type="button" class="btn btn-secondary" href="{{ url_for('home') }}">
+      Cancelar
+    </a>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</div>
+{% endblock %}
